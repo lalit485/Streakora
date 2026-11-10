@@ -7,6 +7,7 @@
     --line:#e9edf0; --soft:#eef1f4;
     --brand:#0fa47f; --brand2:#12b98c; --brand-ink:#0b7d60; --brand-soft:#e6f6f0;
     --fire:#f59e0b; --violet:#6d5ef6; --sky:#2f9be0; --rose:#f26d8b;
+    --prot:#e8663a; --carb:#e0a93a; --fat:#8a7bf0;
     --track:#e7ebee; --shadow:0 8px 22px rgba(16,40,34,.08);
     color-scheme: light;
   }
@@ -15,6 +16,7 @@
     --line:#232a31; --soft:#1b2026;
     --brand:#1fba90; --brand2:#2ad0a1; --brand-ink:#38d9ab; --brand-soft:#15342880;
     --fire:#f6b23e; --violet:#8b7cff; --sky:#4bb0ee; --rose:#f58aa3;
+    --prot:#f07a52; --carb:#edc158; --fat:#a394ff;
     --track:#262d35; --shadow:0 10px 26px rgba(0,0,0,.5);
     color-scheme: dark;
   }}
@@ -23,47 +25,38 @@
     --line:#232a31; --soft:#1b2026;
     --brand:#1fba90; --brand2:#2ad0a1; --brand-ink:#38d9ab; --brand-soft:#15342880;
     --fire:#f6b23e; --violet:#8b7cff; --sky:#4bb0ee; --rose:#f58aa3;
+    --prot:#f07a52; --carb:#edc158; --fat:#a394ff;
     --track:#262d35; --shadow:0 10px 26px rgba(0,0,0,.5);
     color-scheme: dark;
   }
-
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html,body{height:100%;}
-  body{margin:0;background:#dfe3e7;color:var(--ink);
-    font-family:"Inter",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;}
+  body{margin:0;background:#dfe3e7;color:var(--ink);font-family:"Inter",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;}
   @media (prefers-color-scheme: dark){ body{background:#07090c;} }
   :root[data-theme="dark"] body{background:#07090c;}
 
-  #phone{max-width:480px;margin:0 auto;min-height:100dvh;background:var(--app);
-    display:flex;flex-direction:column;position:relative;box-shadow:0 0 40px rgba(0,0,0,.12);}
-  #view{flex:1;overflow-y:auto;padding:18px 16px 96px;
-    padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right));}
-
-  /* tab bar */
-  #tabbar{position:sticky;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--line);
-    padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:20;}
-  .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;
-    color:var(--muted);background:none;border:0;cursor:pointer;padding:4px;font-weight:600;font-family:inherit;}
-  .tab svg{width:22px;height:22px;}
+  #phone{max-width:480px;margin:0 auto;min-height:100dvh;background:var(--app);display:flex;flex-direction:column;position:relative;box-shadow:0 0 40px rgba(0,0,0,.12);}
+  #view{flex:1;overflow-y:auto;padding:18px 16px 96px;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right));}
+  #tabbar{position:sticky;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding:8px 4px calc(8px + env(safe-area-inset-bottom));z-index:20;}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;color:var(--muted);background:none;border:0;cursor:pointer;padding:4px 2px;font-weight:600;font-family:inherit;}
+  .tab svg{width:21px;height:21px;}
   .tab.on{color:var(--brand);}
 
   h2.title{font-size:23px;font-weight:800;letter-spacing:-.02em;margin:4px 2px 2px;}
   .sub{color:var(--muted);font-size:13px;margin:0 2px 14px;}
   .sec{font-size:13px;font-weight:700;margin:18px 2px 9px;display:flex;justify-content:space-between;align-items:center;}
   .sec .mut{color:var(--muted);font-weight:600;font-size:12px;}
-
+  .link{color:var(--brand);font-weight:700;background:none;border:0;font-size:13px;cursor:pointer;font-family:inherit;}
   .card{background:var(--card);border-radius:18px;padding:15px;box-shadow:var(--shadow);}
   .btn{font-family:inherit;font-weight:700;border:0;border-radius:12px;cursor:pointer;}
   .btn-brand{background:var(--brand);color:#fff;padding:12px 16px;font-size:14px;box-shadow:0 8px 18px rgba(15,164,127,.3);}
-  .btn-soft{background:var(--soft);color:var(--ink);padding:10px 14px;font-size:13px;}
-  .link{color:var(--brand);font-weight:700;background:none;border:0;font-size:13px;cursor:pointer;font-family:inherit;}
+  .btn-soft{background:var(--soft);color:var(--ink);padding:11px 14px;font-size:13px;}
 
-  .pill{display:inline-flex;align-items:center;gap:5px;background:var(--brand-soft);color:var(--brand-ink);
-    font-size:12px;font-weight:700;padding:6px 11px;border-radius:999px;}
+  .appbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;}
+  .appbar .name{font-size:12px;color:var(--muted);font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
+  .iconbtn{background:var(--card);border:1px solid var(--line);width:34px;height:34px;border-radius:11px;display:grid;place-items:center;cursor:pointer;color:var(--ink);box-shadow:var(--shadow);}
 
-  /* hero ring */
-  .hero{background:linear-gradient(145deg,var(--brand),var(--brand2));border-radius:22px;padding:18px;
-    color:#fff;display:flex;align-items:center;gap:16px;box-shadow:0 14px 26px rgba(15,164,127,.33);}
+  .hero{background:linear-gradient(145deg,var(--brand),var(--brand2));border-radius:22px;padding:18px;color:#fff;display:flex;align-items:center;gap:16px;box-shadow:0 14px 26px rgba(15,164,127,.33);}
   .ring{position:relative;width:104px;height:104px;flex:none;}
   .ring .t{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
   .ring .t b{font-size:23px;font-weight:800;line-height:1;}
@@ -71,16 +64,16 @@
   .hero .meta b{font-size:15px;font-weight:700;display:block;}
   .hero .meta p{margin:5px 0 0;font-size:12.5px;opacity:.93;line-height:1.5;}
 
-  /* habit row */
-  .habit{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:14px;
-    padding:11px 12px;margin-bottom:8px;box-shadow:var(--shadow);}
-  .hicon{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;flex:none;font-size:18px;}
+  .habit{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:14px;padding:11px 12px;margin-bottom:8px;box-shadow:var(--shadow);}
+  .hicon{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;flex:none;font-size:18px;background:var(--soft);}
   .habit .nm{flex:1;min-width:0;}
   .habit .nm b{font-size:14px;font-weight:600;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .habit .nm small{color:var(--muted);font-size:11px;}
   .chk{width:27px;height:27px;border-radius:50%;border:2px solid var(--track);flex:none;display:grid;place-items:center;cursor:pointer;background:none;}
   .chk.done{background:var(--brand);border-color:var(--brand);}
-  .habit.done .nm b{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--track);}
+  .cntbadge{min-width:46px;height:30px;border-radius:9px;background:var(--soft);display:flex;align-items:center;justify-content:center;gap:3px;font-size:13px;font-weight:700;padding:0 8px;}
+  .cntbadge.done{background:var(--brand-soft);color:var(--brand-ink);}
+  .habit.done .nm b{color:var(--muted);}
 
   .week{display:flex;gap:5px;margin-top:11px;justify-content:space-between;}
   .day{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;}
@@ -88,64 +81,53 @@
   .dot{width:15px;height:15px;border-radius:5px;background:var(--soft);}
   .dot.f{background:var(--brand);}
 
-  /* goal */
-  .goal{margin-bottom:10px;}
-  .goal .gh{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
-  .goal .gh b{font-size:14px;font-weight:700;flex:1;}
-  .goal .gh .pct{font-size:12px;color:var(--muted);font-weight:700;}
+  /* counters (tudum) */
+  .counter{display:flex;align-items:center;gap:13px;}
+  .counter .cemoji{font-size:30px;}
+  .counter .cn{flex:1;min-width:0;}
+  .counter .cn b{font-size:14px;font-weight:700;display:block;}
+  .counter .cn .big{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1;}
+  .counter .cn .big span{font-size:14px;color:var(--muted);font-weight:700;}
+  .counter .cn small{color:var(--muted);font-size:11px;}
+  .reset{background:var(--soft);color:var(--ink);border:0;border-radius:10px;padding:8px 12px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;}
+
+  /* macros */
+  .macros{display:flex;gap:10px;}
+  .macro{flex:1;background:var(--soft);border-radius:12px;padding:10px;text-align:center;}
+  .macro b{font-size:18px;font-weight:800;display:block;}
+  .macro small{font-size:10px;color:var(--muted);font-weight:600;}
+  .macro.p b{color:var(--prot);} .macro.c b{color:var(--carb);} .macro.f b{color:var(--fat);}
+  .kcalrow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;}
+  .kcalrow b{font-size:26px;font-weight:800;letter-spacing:-.02em;}
+  .kcalrow span{font-size:12px;color:var(--muted);}
+  .foodrow{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);}
+  .foodrow .fn{flex:1;min-width:0;}
+  .foodrow .fn b{font-size:13.5px;font-weight:600;}
+  .foodrow .fn small{color:var(--muted);font-size:11px;}
+  .foodrow .fk{font-size:13px;font-weight:700;}
+  .delx{background:none;border:0;color:var(--rose);font-weight:700;font-size:16px;cursor:pointer;padding:2px 6px;}
+
+  /* steps */
   .gbar{height:9px;border-radius:6px;background:var(--track);overflow:hidden;}
   .gbar>span{display:block;height:100%;background:var(--brand);border-radius:6px;}
-  .gctrl{display:flex;gap:8px;margin-top:10px;align-items:center;}
-  .step{width:34px;height:34px;border-radius:10px;background:var(--soft);border:0;font-size:18px;font-weight:700;color:var(--ink);cursor:pointer;}
-  .gctrl .nowt{font-size:12px;color:var(--muted);margin-left:auto;}
 
-  /* mood */
-  .moods{display:flex;justify-content:space-between;margin:4px 0 12px;}
-  .mood{width:52px;height:52px;border-radius:14px;border:2px solid transparent;background:var(--soft);
-    font-size:24px;cursor:pointer;display:grid;place-items:center;}
-  .mood.on{border-color:var(--brand);background:var(--brand-soft);}
-  textarea{width:100%;border:1px solid var(--line);background:var(--app);color:var(--ink);border-radius:12px;
-    padding:11px;font-family:inherit;font-size:13px;resize:vertical;min-height:70px;}
-  .jentry{border-left:3px solid var(--brand);padding:2px 0 2px 11px;margin:12px 0;}
-  .jentry .jd{font-size:11px;color:var(--muted);font-weight:600;}
-  .jentry .jt{font-size:13px;margin-top:3px;line-height:1.5;}
-
-  /* focus */
-  .ftimer{text-align:center;padding:10px 0;}
-  .fcircle{width:210px;height:210px;margin:6px auto 4px;position:relative;}
-  .fcircle .ft{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-  .fcircle .ft b{font-size:42px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
-  .fcircle .ft span{font-size:12px;color:var(--muted);margin-top:2px;}
-  .presets{display:flex;gap:8px;justify-content:center;margin:8px 0 14px;}
-  .preset{padding:8px 16px;border-radius:999px;background:var(--soft);border:0;font-weight:700;font-size:13px;color:var(--muted);cursor:pointer;font-family:inherit;}
-  .preset.on{background:var(--brand);color:#fff;}
-  .fbtns{display:flex;gap:10px;justify-content:center;}
-
-  /* chart */
+  /* progress */
   .chart{display:flex;align-items:flex-end;gap:8px;height:120px;padding-top:8px;}
   .bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;}
   .bar .col{width:100%;max-width:22px;background:var(--brand);border-radius:5px 5px 2px 2px;min-height:3px;}
   .bar .col.soft{background:var(--brand-soft);}
   .bar em{font-style:normal;font-size:9.5px;color:var(--muted);}
-
   .tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .tile{background:var(--card);border-radius:16px;padding:14px;box-shadow:var(--shadow);}
   .tile .k{font-size:10.5px;color:var(--muted);font-weight:600;}
   .tile .val{font-size:25px;font-weight:800;margin-top:6px;letter-spacing:-.02em;}
   .tile .val small{font-size:13px;font-weight:700;color:var(--muted);}
-
-  .heat{display:flex;flex-direction:column;gap:5px;}
-  .heatrow{display:flex;gap:5px;}
-  .cell{width:100%;aspect-ratio:1;border-radius:4px;background:var(--track);}
-  .legend{display:flex;align-items:center;gap:5px;justify-content:flex-end;font-size:9.5px;color:var(--muted);margin-top:9px;}
-  .legend i{width:11px;height:11px;border-radius:3px;background:var(--brand);display:block;}
-
   .empty{text-align:center;color:var(--muted);font-size:13px;padding:22px 10px;}
 
   /* modal */
   #overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center;z-index:50;}
   #overlay.show{display:flex;}
-  .sheet{background:var(--card);width:100%;max-width:480px;border-radius:22px 22px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom));box-shadow:0 -10px 40px rgba(0,0,0,.3);}
+  .sheet{background:var(--card);width:100%;max-width:480px;border-radius:22px 22px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom));box-shadow:0 -10px 40px rgba(0,0,0,.3);max-height:86dvh;overflow-y:auto;}
   .sheet h3{margin:0 0 14px;font-size:17px;font-weight:800;}
   .fld{margin-bottom:12px;}
   .fld label{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-bottom:6px;}
@@ -153,16 +135,17 @@
   .emojis{display:flex;flex-wrap:wrap;gap:7px;}
   .emo{width:40px;height:40px;border-radius:11px;background:var(--soft);border:2px solid transparent;font-size:20px;cursor:pointer;}
   .emo.on{border-color:var(--brand);background:var(--brand-soft);}
+  .seg{display:flex;background:var(--soft);border-radius:12px;padding:3px;}
+  .seg div{flex:1;text-align:center;font-size:13px;font-weight:700;color:var(--muted);padding:9px;border-radius:9px;cursor:pointer;}
+  .seg div.on{background:var(--card);color:var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.08);}
   .sheet .row{display:flex;gap:10px;margin-top:6px;}
   .sheet .row .btn{flex:1;text-align:center;}
-  .delbtn{background:none;border:0;color:var(--rose);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;margin-top:4px;}
-
-  .appbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;}
-  .appbar .name{font-size:12px;color:var(--muted);font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
-  .syncpill{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--soft);color:var(--muted);}
-  .syncpill.synced{background:var(--brand-soft);color:var(--brand-ink);}
-  .syncpill.error{color:var(--fire);}
-  .iconbtn{background:var(--card);border:1px solid var(--line);width:34px;height:34px;border-radius:11px;display:grid;place-items:center;cursor:pointer;color:var(--ink);box-shadow:var(--shadow);}
+  .delbtn{background:none;border:0;color:var(--rose);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;}
+  .fres{display:flex;align-items:center;gap:10px;padding:11px 8px;border-radius:10px;cursor:pointer;}
+  .fres:hover{background:var(--soft);}
+  .fres .fn{flex:1;}
+  .fres .fn b{font-size:13.5px;font-weight:600;display:block;}
+  .fres .fn small{color:var(--muted);font-size:11px;}
 </style>
 
 <div id="phone">
@@ -170,444 +153,361 @@
   <div id="tabbar">
     <button class="tab" data-tab="today" onclick="go('today')"></button>
     <button class="tab" data-tab="habits" onclick="go('habits')"></button>
-    <button class="tab" data-tab="focus" onclick="go('focus')"></button>
-    <button class="tab" data-tab="journal" onclick="go('journal')"></button>
+    <button class="tab" data-tab="counters" onclick="go('counters')"></button>
+    <button class="tab" data-tab="food" onclick="go('food')"></button>
     <button class="tab" data-tab="progress" onclick="go('progress')"></button>
   </div>
 </div>
-
 <div id="overlay" onclick="if(event.target===this)closeSheet()"><div class="sheet" id="sheet"></div></div>
 
 <script>
 "use strict";
 
-/* ---------------- storage ---------------- */
-var KEY = "streakora.v1";
-var state = load();
+/* ---------- food database (per unit; p=protein g, c=carbs g, f=fat g) ---------- */
+var FOODS = [
+  {n:"Roti / Chapati", u:"1 roti", p:3, c:15, f:1},
+  {n:"Rice (cooked)", u:"1 katori", p:4, c:45, f:0.5},
+  {n:"Dal (cooked)", u:"1 katori", p:9, c:20, f:3},
+  {n:"Egg (whole)", u:"1 egg", p:6, c:0.5, f:5},
+  {n:"Egg white", u:"1", p:3.6, c:0.2, f:0},
+  {n:"Milk", u:"1 glass", p:8, c:12, f:8},
+  {n:"Paneer", u:"100 g", p:18, c:3, f:20},
+  {n:"Chicken breast", u:"100 g", p:31, c:0, f:3.6},
+  {n:"Curd / Dahi", u:"1 katori", p:5, c:7, f:4},
+  {n:"Banana", u:"1", p:1.3, c:27, f:0.3},
+  {n:"Apple", u:"1", p:0.5, c:25, f:0.3},
+  {n:"Bread slice", u:"1 slice", p:3, c:13, f:1},
+  {n:"Oats", u:"40 g", p:5, c:27, f:3},
+  {n:"Peanut butter", u:"1 tbsp", p:4, c:3, f:8},
+  {n:"Almonds", u:"10 pcs", p:2.5, c:2.5, f:6},
+  {n:"Whey protein", u:"1 scoop", p:24, c:3, f:1.5},
+  {n:"Soya chunks (dry)", u:"50 g", p:26, c:13, f:0.5},
+  {n:"Rajma (cooked)", u:"1 katori", p:9, c:22, f:0.5},
+  {n:"Chole (cooked)", u:"1 katori", p:8, c:27, f:4},
+  {n:"Poha", u:"1 plate", p:4, c:45, f:6},
+  {n:"Idli", u:"1", p:2, c:12, f:0.3},
+  {n:"Dosa", u:"1", p:4, c:30, f:5},
+  {n:"Upma", u:"1 plate", p:5, c:40, f:10},
+  {n:"Paratha", u:"1", p:5, c:30, f:10},
+  {n:"Potato (boiled)", u:"100 g", p:2, c:17, f:0.1},
+  {n:"Peanuts", u:"30 g", p:7.5, c:5, f:14},
+  {n:"Ghee", u:"1 tsp", p:0, c:0, f:5},
+  {n:"Cheese slice", u:"1", p:4, c:1, f:5},
+  {n:"Fish", u:"100 g", p:22, c:0, f:5},
+  {n:"Sprouts", u:"1 katori", p:8, c:15, f:1},
+  {n:"Tea (with milk)", u:"1 cup", p:1.5, c:8, f:2},
+  {n:"Coffee (with milk)", u:"1 cup", p:1.5, c:8, f:3},
+  {n:"Sugar", u:"1 tsp", p:0, c:5, f:0},
+  {n:"Samosa", u:"1", p:4, c:24, f:14},
+  {n:"Maggi", u:"1 pack", p:7, c:50, f:14},
+  {n:"Biryani", u:"1 plate", p:12, c:60, f:18},
+  {n:"Protein bar", u:"1", p:20, c:20, f:7},
+  {n:"Orange", u:"1", p:1, c:15, f:0.2},
+  {n:"Dates", u:"3 pcs", p:0.6, c:18, f:0},
+  {n:"Khichdi", u:"1 katori", p:6, c:35, f:5},
+  {n:"Curd rice", u:"1 katori", p:5, c:30, f:6},
+  {n:"Pav bhaji", u:"1 plate", p:8, c:45, f:20},
+  {n:"Cold drink", u:"1 glass", p:0, c:26, f:0},
+  {n:"Moong cheela", u:"1", p:7, c:15, f:4}
+];
+function kcalOf(p,c,f){ return Math.round(p*4 + c*4 + f*9); }
 
+/* ---------- storage ---------- */
+var KEY = "streakora.v2";
+var state = load();
 function load(){
-  try{
-    var raw = localStorage.getItem(KEY);
-    if(raw){ var st = JSON.parse(raw); if(!st.steps) st.steps={}; if(!st.stepGoal) st.stepGoal=10000; return st; }
-  }catch(e){}
+  try{ var raw = localStorage.getItem(KEY); if(raw){ var s=JSON.parse(raw); return normalize(s); } }catch(e){}
   return seed();
 }
-function save(){
-  state.updatedAt = Date.now();
-  saveLocal();
-  scheduleCloud();
-}
-function saveLocal(){
-  try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
-}
-
-/* ---- cloud sync: data tied to your Claude account, across devices ---- */
-var cloudRef=null, cloudReady=false, cloudBusy=false, cloudPending=false, cloudTimer=null;
-var syncState="local";
-function setSync(s){ syncState=s; updateSyncPill(); }
-function updateSyncPill(){
-  var el=document.getElementById('syncpill'); if(!el) return;
-  el.className='syncpill '+syncState; el.innerHTML=syncPillInner();
-}
-function syncPillInner(){
-  var t = (syncState==='synced') ? 'Synced'
-    : (syncState==='syncing'||syncState==='connecting') ? 'Syncing…'
-    : (syncState==='error') ? 'Sync paused' : 'This device';
-  return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1.3A3.5 3.5 0 1118 18z" stroke-linecap="round" stroke-linejoin="round"/></svg>'+t;
-}
-async function initCloud(){
-  try{
-    if(typeof window.claude==='undefined' || !window.claude.use){ setSync('local'); return; }
-    setSync('connecting');
-    var db = await window.claude.use('db');
-    var user = await window.claude.use('user');
-    if(!db || !user){ setSync('local'); return; }
-    var uid = await user.id();
-    if(!uid){ setSync('local'); return; }
-    cloudRef = db.doc('data/users/'+uid+'/state');
-    var snap = await cloudRef.get();
-    if(snap && snap.exists){
-      var d = snap.data(); var payload = d && d.payload;
-      if(payload && (payload.updatedAt||0) >= (state.updatedAt||0)){
-        state = payload; saveLocal();
-      } else {
-        await cloudRef.set({payload: state, updatedAt: state.updatedAt||0});
-      }
-    } else {
-      await cloudRef.set({payload: state, updatedAt: state.updatedAt||0});
-    }
-    cloudReady = true; setSync('synced'); render();
-  }catch(e){ setSync('local'); }
-}
-function scheduleCloud(){
-  if(!cloudReady || !cloudRef) return;
-  if(cloudTimer) clearTimeout(cloudTimer);
-  cloudTimer = setTimeout(pushCloud, 1200);
-}
-async function pushCloud(){
-  if(!cloudReady || !cloudRef) return;
-  if(cloudBusy){ cloudPending=true; return; }
-  cloudBusy=true; setSync('syncing');
-  try{ await cloudRef.set({payload: state, updatedAt: state.updatedAt||Date.now()}); setSync('synced'); }
-  catch(e){ setSync('error'); }
-  cloudBusy=false;
-  if(cloudPending){ cloudPending=false; pushCloud(); }
-}
-function seed(){
-  var s = { name:"", habits:[], goals:[], journal:{}, focus:{}, steps:{}, stepGoal:10000, updatedAt:0 };
-  var starters = [
-    {name:"Meditate", emoji:"🧘", color:"var(--violet)"},
-    {name:"Drink water", emoji:"💧", color:"var(--sky)"},
-    {name:"Read 20 min", emoji:"📖", color:"var(--brand)"},
-    {name:"Workout", emoji:"🏋️", color:"var(--fire)"}
-  ];
-  starters.forEach(function(h){ s.habits.push({id:uid(), name:h.name, emoji:h.emoji, color:h.color, history:{}}); });
-  s.goals.push({id:uid(), title:"Read 12 books this year", emoji:"🎯", target:12, current:3});
+function normalize(s){
+  s.habits = s.habits||[]; s.counters = s.counters||[]; s.steps = s.steps||{};
+  s.food = s.food||{}; if(!s.stepGoal) s.stepGoal=10000; s.name = s.name||"";
   return s;
 }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
 function uid(){ return Math.random().toString(36).slice(2,9); }
+function seed(){
+  var s = { name:"", stepGoal:10000, steps:{}, food:{}, counters:[], habits:[] };
+  s.habits = [
+    {id:uid(), name:"Push-ups", emoji:"💪", type:"count", target:20, unit:"reps", history:{}},
+    {id:uid(), name:"Running", emoji:"🏃", type:"count", target:0, unit:"km", history:{}},
+    {id:uid(), name:"Water 3L", emoji:"💧", type:"check", history:{}},
+    {id:uid(), name:"Night facewash", emoji:"🧼", type:"check", history:{}},
+    {id:uid(), name:"No junk food", emoji:"🥗", type:"check", history:{}}
+  ];
+  s.counters = [ {id:uid(), name:"Tudum", emoji:"🔥", start:dayKey(0)} ];
+  return s;
+}
 
-/* ---------------- dates ---------------- */
-function iso(d){ d = d || new Date(); var x = new Date(d.getTime()-d.getTimezoneOffset()*60000); return x.toISOString().slice(0,10); }
-function dayKey(offset){ var d=new Date(); d.setHours(12,0,0,0); d.setDate(d.getDate()+offset); return iso(d); }
-var WD = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+/* ---------- dates ---------- */
+function iso(d){ var x=new Date(d.getTime()-d.getTimezoneOffset()*60000); return x.toISOString().slice(0,10); }
+function dayKey(off){ var d=new Date(); d.setHours(12,0,0,0); d.setDate(d.getDate()+off); return iso(d); }
+function daysBetween(a,b){ var d1=new Date(a+"T12:00:00"), d2=new Date(b+"T12:00:00"); return Math.round((d2-d1)/86400000); }
+var WD=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 function prettyDate(){ var d=new Date(); var days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
   var m=["January","February","March","April","May","June","July","August","September","October","November","December"];
   return days[d.getDay()]+", "+d.getDate()+" "+m[d.getMonth()]; }
 function greeting(){ var h=new Date().getHours(); if(h<12) return "Good morning"; if(h<17) return "Good afternoon"; return "Good evening"; }
-
-/* ---------------- habit logic ---------------- */
-function habitDone(h, key){ return !!h.history[key]; }
-function toggleHabit(id){
-  var h = state.habits.find(function(x){return x.id===id;}); if(!h) return;
-  var k = dayKey(0);
-  if(h.history[k]) delete h.history[k]; else h.history[k]=true;
-  save(); render();
-}
-function habitStreak(h){
-  var s=0, off=0;
-  if(!h.history[dayKey(0)]) off=-1;
-  while(h.history[dayKey(off)]){ s++; off--; if(s>2000) break; }
-  return s;
-}
-function dayCompletion(key){
-  if(state.habits.length===0) return 0;
-  var done = state.habits.filter(function(h){return h.history[key];}).length;
-  return done/state.habits.length;
-}
-function overallStreak(){
-  if(state.habits.length===0) return 0;
-  var s=0, off=0;
-  function won(k){ return dayCompletion(k) >= 0.6; }
-  if(!won(dayKey(0))) off=-1;
-  while(won(dayKey(off))){ s++; off--; if(s>2000) break; }
-  return s;
-}
-function bestStreak(){
-  // best overall streak over last 180 days
-  var best=0, cur=0;
-  for(var i=180;i>=0;i--){ if(dayCompletion(dayKey(-i))>=0.6){ cur++; if(cur>best)best=cur; } else cur=0; }
-  return best;
-}
-function totalDone(){ var t=0; state.habits.forEach(function(h){ t+=Object.keys(h.history).length; }); return t; }
-
-/* ---------------- router ---------------- */
-var current = "today";
-var ICONS = {
-  today:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8h-3v9h-4v-6h-4v6H6v-9H3z"/></svg>',
-  habits:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg>',
-  focus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6" stroke-linecap="round"/></svg>',
-  journal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h11l3 3v13H5z" stroke-linejoin="round"/><path d="M8 9h8M8 13h8M8 17h5" stroke-linecap="round"/></svg>',
-  progress:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5m5 14V9m5 10V7m5 12v-8" stroke-linecap="round"/></svg>'
-};
-var LABELS = {today:"Today",habits:"Habits",focus:"Focus",journal:"Journal",progress:"Progress"};
-function go(tab){ current=tab; render(); var v=document.getElementById('view'); if(v) v.scrollTop=0; }
-
-function render(){
-  // tab bar
-  Array.prototype.forEach.call(document.querySelectorAll('.tab'), function(b){
-    var t=b.getAttribute('data-tab');
-    b.className = 'tab'+(t===current?' on':'');
-    b.innerHTML = ICONS[t]+'<span>'+LABELS[t]+'</span>';
-  });
-  var v = document.getElementById('view');
-  if(current==='today') v.innerHTML = viewToday();
-  else if(current==='habits') v.innerHTML = viewHabits();
-  else if(current==='focus') v.innerHTML = viewFocus();
-  else if(current==='journal') v.innerHTML = viewJournal();
-  else if(current==='progress') v.innerHTML = viewProgress();
-  if(current==='focus') paintFocus();
-}
-
-/* ---------------- views ---------------- */
-function ringSVG(frac, size, stroke, trackCol, col){
-  var r = (size/2) - stroke/2 - 1;
-  var c = 2*Math.PI*r;
-  var dash = Math.max(0, Math.min(1,frac))*c;
-  return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 '+size+' '+size+'">'
-    +'<circle cx="'+(size/2)+'" cy="'+(size/2)+'" r="'+r+'" fill="none" stroke="'+trackCol+'" stroke-width="'+stroke+'"/>'
-    +'<circle cx="'+(size/2)+'" cy="'+(size/2)+'" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="'+stroke+'" stroke-linecap="round" stroke-dasharray="'+dash+' '+c+'" transform="rotate(-90 '+(size/2)+' '+(size/2)+')"/>'
-    +'</svg>';
-}
 function esc(s){ return (s||"").replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
 
+/* ---------- habit logic ---------- */
+function habVal(h,k){ return h.type==="count" ? (Number(h.history[k])||0) : (h.history[k]?1:0); }
+function habDone(h,k){
+  if(h.type==="count"){ var v=Number(h.history[k])||0; return h.target>0 ? v>=h.target : v>0; }
+  return !!h.history[k];
+}
+function toggleCheck(id){ var h=find(state.habits,id); if(!h)return; var k=dayKey(0); if(h.history[k]) delete h.history[k]; else h.history[k]=true; save(); render(); }
+function find(arr,id){ return arr.find(function(x){return x.id===id;}); }
+function habStreak(h){ var s=0,off=0; if(!habDone(h,dayKey(0))) off=-1; while(habDone(h,dayKey(off))){ s++; off--; if(s>2000)break; } return s; }
+function dayCompletion(k){ if(state.habits.length===0) return 0; var d=state.habits.filter(function(h){return habDone(h,k);}).length; return d/state.habits.length; }
+function overallStreak(){ if(state.habits.length===0) return 0; var s=0,off=0; var won=function(k){return dayCompletion(k)>=0.6;}; if(!won(dayKey(0))) off=-1; while(won(dayKey(off))){ s++; off--; if(s>2000)break; } return s; }
+function bestStreak(){ var best=0,cur=0; for(var i=180;i>=0;i--){ if(dayCompletion(dayKey(-i))>=0.6){cur++; if(cur>best)best=cur;} else cur=0; } return best; }
+function totalDone(){ var t=0; state.habits.forEach(function(h){ for(var k in h.history){ if(habDone(h,k)) t++; } }); return t; }
+
+/* ---------- food logic ---------- */
+function todayFood(){ return state.food[dayKey(0)] || []; }
+function foodTotals(list){ var t={p:0,c:0,f:0,kcal:0}; list.forEach(function(e){ t.p+=e.p; t.c+=e.c; t.f+=e.f; t.kcal+=e.kcal; });
+  t.p=Math.round(t.p); t.c=Math.round(t.c); t.f=Math.round(t.f); t.kcal=Math.round(t.kcal); return t; }
+
+/* ---------- router ---------- */
+var current="today";
+var ICONS={
+  today:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8h-3v9h-4v-6h-4v6H6v-9H3z"/></svg>',
+  habits:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg>',
+  counters:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3C9 7 7 9 7 13a5 5 0 0010 0c0-4-2-6-5-10z" stroke-linejoin="round"/></svg>',
+  food:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3v18M5 8h4V3M9 3v18M15 3c-1 2-1 5 0 7v11" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  progress:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5m5 14V9m5 10V7m5 12v-8" stroke-linecap="round"/></svg>'
+};
+var LABELS={today:"Today",habits:"Habits",counters:"Counters",food:"Food",progress:"Progress"};
+function go(t){ current=t; render(); var v=document.getElementById('view'); if(v)v.scrollTop=0; }
+function render(){
+  Array.prototype.forEach.call(document.querySelectorAll('.tab'),function(b){ var t=b.getAttribute('data-tab'); b.className='tab'+(t===current?' on':''); b.innerHTML=ICONS[t]+'<span>'+LABELS[t]+'</span>'; });
+  var v=document.getElementById('view');
+  v.innerHTML = current==='today'?viewToday(): current==='habits'?viewHabits(): current==='counters'?viewCounters(): current==='food'?viewFood(): viewProgress();
+}
+
+/* ---------- ring ---------- */
+function ringSVG(frac,size,stroke,trackCol,col){ var r=(size/2)-stroke/2-1,c=2*Math.PI*r,dash=Math.max(0,Math.min(1,frac))*c;
+  return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 '+size+' '+size+'"><circle cx="'+(size/2)+'" cy="'+(size/2)+'" r="'+r+'" fill="none" stroke="'+trackCol+'" stroke-width="'+stroke+'"/><circle cx="'+(size/2)+'" cy="'+(size/2)+'" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="'+stroke+'" stroke-linecap="round" stroke-dasharray="'+dash+' '+c+'" transform="rotate(-90 '+(size/2)+' '+(size/2)+')"/></svg>';
+}
+
+/* ---------- Today ---------- */
 function viewToday(){
-  var k = dayKey(0);
-  var total = state.habits.length;
-  var done = state.habits.filter(function(h){return h.history[k];}).length;
-  var frac = total? done/total : 0;
-  var streak = overallStreak();
-  var left = total-done;
-  var hb = state.habits.map(function(h){
-    var d = h.history[k];
-    return '<div class="habit'+(d?' done':'')+'">'
-      +'<div class="hicon" style="background:var(--soft)">'+h.emoji+'</div>'
-      +'<div class="nm"><b>'+esc(h.name)+'</b><small>🔥 '+habitStreak(h)+' day streak</small></div>'
-      +'<button class="chk'+(d?' done':'')+'" onclick="toggleHabit(\''+h.id+'\')">'+(d?'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 7"/></svg>':'')+'</button>'
-      +'</div>';
-  }).join('');
-  if(total===0) hb = '<div class="empty">Abhi koi habit nahi. Habits tab me ja ke add karo.</div>';
-
-  var goals = state.goals.map(goalHTML).join('');
-  if(state.goals.length===0) goals = '<div class="empty">Koi goal nahi. Niche + se add karo.</div>';
-
-  var name = state.name ? (', '+esc(state.name)) : '';
-  return ''
-  + '<div class="appbar"><div style="display:flex;align-items:center;gap:8px"><span class="name">Streakora</span><span id="syncpill" class="syncpill '+syncState+'">'+syncPillInner()+'</span></div>'
-    + '<button class="iconbtn" onclick="openName()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.3 3-5.5 7-5.5s7 2.2 7 5.5" stroke-linecap="round"/></svg></button></div>'
-  + '<h2 class="title">'+greeting()+name+' 👋</h2>'
-  + '<p class="sub">'+prettyDate()+'</p>'
-  + '<div class="hero"><div class="ring">'+ringSVG(frac,104,11,'rgba(255,255,255,.28)','#fff')
-    + '<div class="t"><b>'+done+'/'+total+'</b><span>done</span></div></div>'
-    + '<div class="meta"><b>'+(left<=0&&total>0?"All done! 🎉":"You're on track")+'</b>'
-    + '<p>'+(total===0?"Add your first habit":(left<=0?"Amazing consistency.":left+' habit'+(left>1?'s':'')+' left today.'))
-    + '<br>🔥 '+streak+'-day streak</p></div></div>'
-  + stepsCardToday()
-  + '<div class="sec">Today\'s habits <span class="mut">'+Math.round(frac*100)+'%</span></div>'
-  + hb
-  + '<div class="sec">Goals <button class="link" onclick="openGoal()">+ Add</button></div>'
-  + goals;
+  var k=dayKey(0); var total=state.habits.length;
+  var done=state.habits.filter(function(h){return habDone(h,k);}).length;
+  var frac=total?done/total:0, left=total-done;
+  var hb=state.habits.map(habitRow).join('');
+  if(total===0) hb='<div class="empty">Koi habit nahi. Habits tab me add karo.</div>';
+  var ft=foodTotals(todayFood());
+  var st=(state.steps[k])||0, sg=state.stepGoal||10000, spct=sg>0?Math.min(100,Math.round(st/sg*100)):0;
+  var cnt=state.counters.map(function(c){ var d=Math.max(0,daysBetween(c.start,dayKey(0)));
+    return '<div style="flex:1;text-align:center"><div style="font-size:22px">'+c.emoji+'</div><div style="font-size:20px;font-weight:800">'+d+'</div><div style="font-size:10px;color:var(--muted)">'+esc(c.name)+'</div></div>'; }).join('');
+  var name=state.name?(', '+esc(state.name)):'';
+  return '<div class="appbar"><span class="name">Streakora</span>'
+    +'<button class="iconbtn" onclick="openName()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.3 3-5.5 7-5.5s7 2.2 7 5.5" stroke-linecap="round"/></svg></button></div>'
+    +'<h2 class="title">'+greeting()+name+' 👋</h2><p class="sub">'+prettyDate()+'</p>'
+    +'<div class="hero"><div class="ring">'+ringSVG(frac,104,11,'rgba(255,255,255,.28)','#fff')+'<div class="t"><b>'+done+'/'+total+'</b><span>done</span></div></div>'
+    +'<div class="meta"><b>'+(total>0&&left<=0?"All done! 🎉":"You\'re on track")+'</b><p>'+(total===0?"Add your habits":(left<=0?"Great consistency.":left+' left today.'))+'<br>🔥 '+overallStreak()+'-day streak</p></div></div>'
+    +'<div class="sec">Today\'s habits <span class="mut">'+Math.round(frac*100)+'%</span></div>'+hb
+    +'<div class="sec">Steps <button class="link" onclick="openSteps()">Edit</button></div>'
+    +'<div class="card"><div style="display:flex;align-items:center;gap:14px"><div style="font-size:26px">👟</div><div style="flex:1;min-width:0">'
+    +'<div style="display:flex;justify-content:space-between;align-items:baseline"><b style="font-size:22px;font-weight:800">'+st.toLocaleString()+'</b><span style="font-size:12px;color:var(--muted)">goal '+sg.toLocaleString()+'</span></div>'
+    +'<div class="gbar" style="margin-top:8px"><span style="width:'+spct+'%"></span></div></div></div></div>'
+    +'<div class="sec">Nutrition today <button class="link" onclick="go(\'food\')">Add food</button></div>'
+    +'<div class="card"><div class="kcalrow"><b>'+ft.kcal+' <span style="font-size:13px;color:var(--muted)">kcal</span></b><span>'+todayFood().length+' items</span></div>'
+    +'<div class="macros"><div class="macro p"><b>'+ft.p+'g</b><small>PROTEIN</small></div><div class="macro c"><b>'+ft.c+'g</b><small>CARBS</small></div><div class="macro f"><b>'+ft.f+'g</b><small>FAT</small></div></div></div>'
+    +(state.counters.length?('<div class="sec">Counters <button class="link" onclick="go(\'counters\')">Open</button></div><div class="card"><div style="display:flex">'+cnt+'</div></div>'):'');
 }
+function habitRow(h){
+  var k=dayKey(0), done=habDone(h,k);
+  if(h.type==="count"){
+    var v=Number(h.history[k])||0;
+    var sub=h.target>0 ? (v+'/'+h.target+' '+h.unit) : (v+' '+h.unit);
+    return '<div class="habit'+(done?' done':'')+'" onclick="openCount(\''+h.id+'\')" style="cursor:pointer">'
+      +'<div class="hicon">'+h.emoji+'</div><div class="nm"><b>'+esc(h.name)+'</b><small>'+sub+' · 🔥 '+habStreak(h)+'</small></div>'
+      +'<div class="cntbadge'+(done?' done':'')+'">'+v+'</div></div>';
+  }
+  return '<div class="habit'+(done?' done':'')+'">'
+    +'<div class="hicon">'+h.emoji+'</div><div class="nm"><b>'+esc(h.name)+'</b><small>🔥 '+habStreak(h)+' day streak</small></div>'
+    +'<button class="chk'+(done?' done':'')+'" onclick="toggleCheck(\''+h.id+'\')">'+(done?tick():'')+'</button></div>';
+}
+function tick(){ return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 7"/></svg>'; }
 
-function goalHTML(g){
-  var pct = g.target>0 ? Math.min(100, Math.round(g.current/g.target*100)) : 0;
-  return '<div class="card goal">'
-    +'<div class="gh"><span style="font-size:18px">'+g.emoji+'</span><b>'+esc(g.title)+'</b><span class="pct">'+g.current+'/'+g.target+'</span></div>'
-    +'<div class="gbar"><span style="width:'+pct+'%"></span></div>'
-    +'<div class="gctrl"><button class="step" onclick="bumpGoal(\''+g.id+'\',-1)">−</button>'
-    +'<button class="step" onclick="bumpGoal(\''+g.id+'\',1)">+</button>'
-    +'<span class="nowt">'+pct+'% complete</span>'
-    +'<button class="delbtn" onclick="delGoal(\''+g.id+'\')">Delete</button></div>'
-    +'</div>';
-}
-function bumpGoal(id,d){ var g=state.goals.find(function(x){return x.id===id;}); if(!g)return; g.current=Math.max(0,g.current+d); save(); render(); }
-function delGoal(id){ state.goals=state.goals.filter(function(x){return x.id!==id;}); save(); render(); }
-
-/* ---- steps ---- */
-function todaySteps(){ return (state.steps && state.steps[dayKey(0)]) || 0; }
-function stepGoal(){ return state.stepGoal || 10000; }
-function stepsCardToday(){
-  var st = todaySteps(), g = stepGoal();
-  var pct = g>0 ? Math.min(100, Math.round(st/g*100)) : 0;
-  var km = (st*0.00075).toFixed(1), kcal = Math.round(st*0.04);
-  return '<div class="sec">Steps <button class="link" onclick="openSteps()">Edit</button></div>'
-    +'<div class="card"><div style="display:flex;align-items:center;gap:14px">'
-    +'<div style="font-size:26px">👟</div>'
-    +'<div style="flex:1;min-width:0">'
-    +'<div style="display:flex;justify-content:space-between;align-items:baseline">'
-    +'<b style="font-size:22px;font-weight:800;letter-spacing:-.02em">'+st.toLocaleString()+'</b>'
-    +'<span style="font-size:12px;color:var(--muted)">goal '+g.toLocaleString()+'</span></div>'
-    +'<div class="gbar" style="margin-top:8px"><span style="width:'+pct+'%"></span></div>'
-    +'<div style="display:flex;gap:14px;margin-top:8px;font-size:11px;color:var(--muted)">'
-    +'<span>'+pct+'% of goal</span><span>≈ '+km+' km</span><span>≈ '+kcal+' kcal</span></div>'
-    +'</div></div></div>';
-}
-function openSteps(){
-  openSheet('<h3>Today\'s steps</h3>'
-    +'<div class="fld"><label>Steps (aaj ke)</label><input id="stval" type="number" inputmode="numeric" placeholder="e.g. 6500" value="'+(todaySteps()||'')+'"></div>'
-    +'<div class="fld"><label>Daily goal</label><input id="stgoal" type="number" inputmode="numeric" value="'+stepGoal()+'"></div>'
-    +'<div class="row"><button class="btn btn-soft" onclick="closeSheet()">Cancel</button><button class="btn btn-brand" onclick="saveSteps()">Save</button></div>');
-  setTimeout(function(){ var el=document.getElementById('stval'); if(el) el.focus(); },50);
-}
-function saveSteps(){
-  if(!state.steps) state.steps={};
-  var v=parseInt(document.getElementById('stval').value,10); if(isNaN(v)||v<0) v=0;
-  var g=parseInt(document.getElementById('stgoal').value,10); if(isNaN(g)||g<1) g=10000;
-  state.steps[dayKey(0)]=v; state.stepGoal=g; save(); closeSheet(); render();
-}
-/* called by the Android app (Health Connect / Google Fit) to push today's steps */
-window.setSteps=function(n){
-  try{ if(!state.steps) state.steps={}; var v=parseInt(n,10); if(isNaN(v)||v<0) return;
-    state.steps[dayKey(0)]=v; state.updatedAt=Date.now(); saveLocal(); scheduleCloud();
-    if(current==='today') render(); }catch(e){}
-};
-window.setStepGoal=function(n){
-  try{ var g=parseInt(n,10); if(!isNaN(g)&&g>0){ state.stepGoal=g; save(); if(current==='today') render(); } }catch(e){}
-};
-
+/* ---------- Habits tab ---------- */
 function viewHabits(){
-  var rows = state.habits.map(function(h){
-    var dots = '';
+  var rows=state.habits.map(function(h){
+    var dots='';
     for(var i=6;i>=0;i--){ var key=dayKey(-i); var d=new Date(); d.setDate(d.getDate()-i);
-      dots += '<div class="day"><div class="dot'+(h.history[key]?' f':'')+'"></div><em>'+WD[d.getDay()][0]+'</em></div>'; }
-    return '<div class="card" style="margin-bottom:10px">'
-      +'<div style="display:flex;align-items:center;gap:11px">'
-      +'<div class="hicon" style="background:var(--soft)">'+h.emoji+'</div>'
-      +'<div class="nm" style="flex:1"><b style="font-size:14px;font-weight:700">'+esc(h.name)+'</b>'
-      +'<div style="color:var(--fire);font-size:11px;font-weight:700">🔥 '+habitStreak(h)+' day streak</div></div>'
-      +'<button class="delbtn" onclick="delHabit(\''+h.id+'\')">Delete</button></div>'
-      +'<div class="week">'+dots+'</div></div>';
+      dots+='<div class="day"><div class="dot'+(habDone(h,key)?' f':'')+'"></div><em>'+WD[d.getDay()][0]+'</em></div>'; }
+    var tgt=h.type==="count"?(h.target>0?('min '+h.target+' '+h.unit):('logs '+h.unit)):'daily';
+    return '<div class="card" style="margin-bottom:10px"><div style="display:flex;align-items:center;gap:11px">'
+      +'<div class="hicon">'+h.emoji+'</div><div class="nm" style="flex:1"><b style="font-size:14px;font-weight:700">'+esc(h.name)+'</b>'
+      +'<div style="font-size:11px;color:var(--muted)">'+tgt+' · 🔥 '+habStreak(h)+' day streak</div></div>'
+      +'<button class="delbtn" onclick="delHabit(\''+h.id+'\')">Delete</button></div><div class="week">'+dots+'</div></div>';
   }).join('');
-  if(state.habits.length===0) rows='<div class="empty">Abhi koi habit nahi.<br>Niche button se pehla habit banao.</div>';
-  return '<h2 class="title">Habits</h2><p class="sub">Roz ke chhote kaam jo tumhe behtar banate hain</p>'
-    + rows
-    + '<button class="btn btn-brand" style="width:100%;margin-top:6px" onclick="openHabit()">+ New habit</button>';
+  if(state.habits.length===0) rows='<div class="empty">Koi habit nahi.<br>Niche se pehla habit banao.</div>';
+  return '<h2 class="title">Habits</h2><p class="sub">Roz ke chhote kaam jo tumhe behtar banate hain</p>'+rows
+    +'<button class="btn btn-brand" style="width:100%;margin-top:6px" onclick="openHabit()">+ New habit</button>';
 }
 
-/* ---------------- focus ---------------- */
-var focusLen = 25*60, focusRemain = 25*60, focusTimer=null, focusRunning=false;
-function viewFocus(){
-  var today = state.focus[dayKey(0)] || {sessions:0, minutes:0};
-  return '<h2 class="title">Focus</h2><p class="sub">Ek kaam, poora dhyan</p>'
-    +'<div class="card ftimer">'
-    +'<div class="presets">'
-    +preset(15)+preset(25)+preset(50)
-    +'</div>'
-    +'<div class="fcircle" id="fcircle"></div>'
-    +'<div class="fbtns">'
-    +'<button class="btn btn-brand" id="fstart" onclick="focusToggle()" style="min-width:120px">Start</button>'
-    +'<button class="btn btn-soft" onclick="focusReset()">Reset</button>'
-    +'</div></div>'
-    +'<div class="tiles" style="margin-top:14px">'
-    +'<div class="tile"><div class="k">⏱️ Today\'s sessions</div><div class="val">'+today.sessions+'</div></div>'
-    +'<div class="tile"><div class="k">🎯 Focus minutes</div><div class="val">'+today.minutes+'</div></div>'
-    +'</div>';
+/* ---------- Counters (Tudum) ---------- */
+function viewCounters(){
+  var rows=state.counters.map(function(c){ var d=Math.max(0,daysBetween(c.start,dayKey(0)));
+    return '<div class="card counter" style="margin-bottom:10px"><div class="cemoji">'+c.emoji+'</div>'
+      +'<div class="cn"><b>'+esc(c.name)+'</b><div class="big">'+d+' <span>'+(d===1?'day':'days')+'</span></div><small>since '+c.start+'</small></div>'
+      +'<div style="display:flex;flex-direction:column;gap:6px"><button class="reset" onclick="resetCounter(\''+c.id+'\')">Reset</button>'
+      +'<button class="delbtn" style="font-size:11px" onclick="delCounter(\''+c.id+'\')">Delete</button></div></div>';
+  }).join('');
+  if(state.counters.length===0) rows='<div class="empty">Koi counter nahi.<br>"X din ho gaye" track karne ke liye niche add karo.</div>';
+  return '<h2 class="title">Counters</h2><p class="sub">Kitne din ho gaye — reset dabao to wapas 0</p>'+rows
+    +'<button class="btn btn-brand" style="width:100%;margin-top:6px" onclick="openCounter()">+ New counter</button>';
 }
-function preset(m){ return '<button class="preset'+(focusLen===m*60?' on':'')+'" onclick="setFocus('+m+')">'+m+'m</button>'; }
-function setFocus(m){ if(focusRunning) return; focusLen=m*60; focusRemain=m*60; render(); }
-function fmt(s){ var m=Math.floor(s/60), ss=s%60; return m+':'+(ss<10?'0':'')+ss; }
-function paintFocus(){
-  var el=document.getElementById('fcircle'); if(!el) return;
-  var frac = focusLen? (focusLen-focusRemain)/focusLen : 0;
-  el.innerHTML = ringSVG(frac,210,14,'var(--track)','var(--brand)')
-    +'<div class="ft"><b>'+fmt(focusRemain)+'</b><span>'+(focusRunning?'focusing…':'ready')+'</span></div>';
-  var b=document.getElementById('fstart'); if(b) b.textContent = focusRunning?'Pause':'Start';
-}
-function focusToggle(){
-  if(focusRunning){ focusRunning=false; clearInterval(focusTimer); paintFocus(); return; }
-  focusRunning=true;
-  focusTimer=setInterval(function(){
-    focusRemain--;
-    if(focusRemain<=0){
-      clearInterval(focusTimer); focusRunning=false;
-      var k=dayKey(0); var f=state.focus[k]||{sessions:0,minutes:0};
-      f.sessions++; f.minutes+=Math.round(focusLen/60); state.focus[k]=f; save();
-      focusRemain=focusLen;
-      if(current==='focus') render();
-      return;
-    }
-    paintFocus();
-  },1000);
-  paintFocus();
-}
-function focusReset(){ focusRunning=false; clearInterval(focusTimer); focusRemain=focusLen; paintFocus(); var b=document.getElementById('fstart'); if(b) b.textContent='Start'; }
+function resetCounter(id){ var c=find(state.counters,id); if(!c)return; c.start=dayKey(0); save(); render(); }
+function delCounter(id){ state.counters=state.counters.filter(function(x){return x.id!==id;}); save(); render(); }
 
-/* ---------------- journal ---------------- */
-var MOODS = ["😞","😕","😐","🙂","😄"];
-function viewJournal(){
-  var k=dayKey(0); var j=state.journal[k]||{mood:0,note:""};
-  var moodBtns = MOODS.map(function(m,i){ return '<button class="mood'+(j.mood===i+1?' on':'')+'" onclick="setMood('+(i+1)+')">'+m+'</button>'; }).join('');
-  var past='';
-  var keys=Object.keys(state.journal).sort().reverse();
-  for(var i=0;i<keys.length && i<10;i++){ var e=state.journal[keys[i]]; if(!e || (!e.note && !e.mood)) continue;
-    if(keys[i]===k) continue;
-    past += '<div class="jentry"><div class="jd">'+(e.mood?MOODS[e.mood-1]+'  ':'')+keys[i]+'</div>'+(e.note?'<div class="jt">'+esc(e.note)+'</div>':'')+'</div>'; }
-  if(!past) past='<div class="empty">Purani entries yahan dikhengi</div>';
-  return '<h2 class="title">Journal</h2><p class="sub">Aaj kaisa mehsoos ho raha hai?</p>'
-    +'<div class="card"><div class="moods">'+moodBtns+'</div>'
-    +'<textarea id="jnote" placeholder="Aaj ke baare me kuch likho… (optional)" oninput="noteChanged()">'+esc(j.note)+'</textarea>'
-    +'<div style="font-size:11px;color:var(--muted);margin-top:8px">Apne aap save ho jaata hai ✓</div></div>'
-    +'<div class="sec">Recent</div>'+past;
+/* ---------- Food ---------- */
+function viewFood(){
+  var list=todayFood(), t=foodTotals(list);
+  var items=list.map(function(e,i){
+    return '<div class="foodrow"><div class="fn"><b>'+esc(e.name)+'</b><small>'+(e.qty>1?e.qty+' × ':'')+esc(e.unit||'')+' · P'+Math.round(e.p)+' C'+Math.round(e.c)+' F'+Math.round(e.f)+'</small></div>'
+      +'<div class="fk">'+e.kcal+'</div><button class="delx" onclick="delFood('+i+')">✕</button></div>';
+  }).join('');
+  if(list.length===0) items='<div class="empty">Aaj kuch add nahi kiya.<br>Niche "+ Add food" dabao.</div>';
+  return '<h2 class="title">Food</h2><p class="sub">Jo khaya add karo — protein/carbs khud aa jaayega</p>'
+    +'<div class="card"><div class="kcalrow"><b>'+t.kcal+' <span style="font-size:13px;color:var(--muted)">kcal today</span></b></div>'
+    +'<div class="macros"><div class="macro p"><b>'+t.p+'g</b><small>PROTEIN</small></div><div class="macro c"><b>'+t.c+'g</b><small>CARBS</small></div><div class="macro f"><b>'+t.f+'g</b><small>FAT</small></div></div></div>'
+    +'<div class="sec">Today\'s items</div><div class="card" style="padding:4px 15px">'+items+'</div>'
+    +'<button class="btn btn-brand" style="width:100%;margin-top:12px" onclick="openFood()">+ Add food</button>';
 }
-function setMood(m){ var k=dayKey(0); var j=state.journal[k]||{mood:0,note:""}; j.mood=m; state.journal[k]=j; save(); render(); }
-function noteChanged(){ var k=dayKey(0); var j=state.journal[k]||{mood:0,note:""}; var el=document.getElementById('jnote'); j.note=el.value; state.journal[k]=j; save(); }
+function delFood(i){ var k=dayKey(0); if(state.food[k]){ state.food[k].splice(i,1); if(!state.food[k].length) delete state.food[k]; save(); render(); } }
 
-/* ---------------- progress ---------------- */
+/* ---------- Progress ---------- */
 function viewProgress(){
   var bars='';
-  for(var i=6;i>=0;i--){ var key=dayKey(-i); var d=new Date(); d.setDate(d.getDate()-i);
-    var frac=dayCompletion(key); var h=Math.round(frac*100);
-    bars += '<div class="bar"><div class="col'+(i>0&&h===0?' soft':'')+'" style="height:'+Math.max(h,3)+'%"></div><em>'+WD[d.getDay()][0]+'</em></div>'; }
-  var heat='';
-  var idx=34;
-  for(var r=0;r<5;r++){ heat+='<div class="heatrow">';
-    for(var c=0;c<7;c++){ var frac2=dayCompletion(dayKey(-idx)); idx--;
-      var op = frac2<=0?0.12:(0.3+frac2*0.7);
-      heat += '<div class="cell" style="background:var(--brand);opacity:'+op.toFixed(2)+'"></div>'; }
+  for(var i=6;i>=0;i--){ var key=dayKey(-i); var d=new Date(); d.setDate(d.getDate()-i); var h=Math.round(dayCompletion(key)*100);
+    bars+='<div class="bar"><div class="col'+(i>0&&h===0?' soft':'')+'" style="height:'+Math.max(h,3)+'%"></div><em>'+WD[d.getDay()][0]+'</em></div>'; }
+  var heat='',idx=34;
+  for(var r=0;r<5;r++){ heat+='<div class="heatrow" style="display:flex;gap:5px">';
+    for(var c=0;c<7;c++){ var fr=dayCompletion(dayKey(-idx)); idx--; var op=fr<=0?0.12:(0.3+fr*0.7);
+      heat+='<div style="width:100%;aspect-ratio:1;border-radius:4px;background:var(--brand);opacity:'+op.toFixed(2)+'"></div>'; }
     heat+='</div>'; }
   return '<h2 class="title">Progress</h2><p class="sub">Tumhari consistency ka hisaab</p>'
-    +'<div class="card" style="margin-bottom:12px"><div class="sec" style="margin:0 0 6px"><b>Habits completed</b><span class="mut">last 7 days</span></div>'
-    +'<div class="chart">'+bars+'</div></div>'
+    +'<div class="card" style="margin-bottom:12px"><div class="sec" style="margin:0 0 6px"><b>Habits completed</b><span class="mut">last 7 days</span></div><div class="chart">'+bars+'</div></div>'
     +'<div class="tiles" style="margin-bottom:12px">'
     +'<div class="tile"><div class="k">🔥 Current streak</div><div class="val">'+overallStreak()+' <small>days</small></div></div>'
     +'<div class="tile"><div class="k">🏆 Best streak</div><div class="val">'+bestStreak()+' <small>days</small></div></div>'
     +'<div class="tile"><div class="k">✅ Today</div><div class="val">'+Math.round(dayCompletion(dayKey(0))*100)+'<small>%</small></div></div>'
-    +'<div class="tile"><div class="k">📈 Total done</div><div class="val">'+totalDone()+'</div></div>'
-    +'</div>'
-    +'<div class="card"><div class="sec" style="margin:0 0 8px"><b>Consistency</b><span class="mut">last 5 weeks</span></div>'
-    +'<div class="heat">'+heat+'</div>'
-    +'<div class="legend">Less <i style="opacity:.25"></i><i style="opacity:.5"></i><i style="opacity:.75"></i><i style="opacity:1"></i> More</div></div>';
+    +'<div class="tile"><div class="k">📈 Total done</div><div class="val">'+totalDone()+'</div></div></div>'
+    +'<div class="card"><div class="sec" style="margin:0 0 8px"><b>Consistency</b><span class="mut">last 5 weeks</span></div><div style="display:flex;flex-direction:column;gap:5px">'+heat+'</div></div>';
 }
 
-/* ---------------- sheets (add/edit) ---------------- */
-var EMO_HABIT = ["🧘","💧","📖","🏋️","🏃","🥗","😴","🧠","✍️","📵","☀️","💊","🎸","🧹","💰","🙏"];
-var pickedEmoji = "🧘";
+/* ---------- sheets ---------- */
 function openSheet(html){ document.getElementById('sheet').innerHTML=html; document.getElementById('overlay').classList.add('show'); }
 function closeSheet(){ document.getElementById('overlay').classList.remove('show'); }
+var pickedEmoji="💪", newType="check";
+
+function openCount(id){
+  var h=find(state.habits,id); if(!h)return; var v=Number(h.history[dayKey(0)])||0;
+  openSheet('<h3>'+esc(h.name)+'</h3>'
+    +'<div class="fld"><label>Aaj kitna? ('+esc(h.unit)+')'+(h.target>0?' — target '+h.target:'')+'</label><input id="cv" type="number" inputmode="decimal" value="'+(v||'')+'" placeholder="0"></div>'
+    +'<div class="row"><button class="btn btn-soft" onclick="closeSheet()">Cancel</button><button class="btn btn-brand" onclick="saveCount(\''+h.id+'\')">Save</button></div>');
+  setTimeout(function(){var el=document.getElementById('cv'); if(el)el.focus();},50);
+}
+function saveCount(id){ var h=find(state.habits,id); if(!h)return; var v=parseFloat(document.getElementById('cv').value); if(isNaN(v)||v<0)v=0;
+  if(v===0) delete h.history[dayKey(0)]; else h.history[dayKey(0)]=v; save(); closeSheet(); render(); }
 
 function openHabit(){
-  pickedEmoji = EMO_HABIT[0];
-  var emos = EMO_HABIT.map(function(e,i){ return '<button class="emo'+(i===0?' on':'')+'" onclick="pickEmo(this,\''+e+'\')">'+e+'</button>'; }).join('');
+  pickedEmoji="⭐"; newType="check";
+  var set=["⭐","💪","🏃","💧","🧼","🥗","🧘","📖","😴","🦷","🚭","☀️","💊","🧠","🙏","🏋️"];
+  var emos=set.map(function(e,i){return '<button class="emo'+(i===0?' on':'')+'" onclick="pickEmo(this,\''+e+'\')">'+e+'</button>';}).join('');
   openSheet('<h3>New habit</h3>'
-    +'<div class="fld"><label>Naam</label><input id="hname" placeholder="e.g. Meditate" autocomplete="off"></div>'
+    +'<div class="fld"><label>Naam</label><input id="hn" placeholder="e.g. Push-ups" autocomplete="off"></div>'
+    +'<div class="fld"><label>Type</label><div class="seg"><div id="tc" class="on" onclick="setType(\'check\')">Yes / No</div><div id="tn" onclick="setType(\'count\')">Number</div></div></div>'
+    +'<div id="numfields" style="display:none"><div class="fld"><label>Unit (e.g. reps, km, L)</label><input id="hu" placeholder="reps" autocomplete="off"></div>'
+    +'<div class="fld"><label>Daily target (optional)</label><input id="ht" type="number" inputmode="numeric" placeholder="20"></div></div>'
     +'<div class="fld"><label>Icon</label><div class="emojis">'+emos+'</div></div>'
     +'<div class="row"><button class="btn btn-soft" onclick="closeSheet()">Cancel</button><button class="btn btn-brand" onclick="addHabit()">Add habit</button></div>');
-  setTimeout(function(){ var el=document.getElementById('hname'); if(el) el.focus(); },50);
 }
+function setType(t){ newType=t; document.getElementById('tc').className=(t==='check'?'on':''); document.getElementById('tn').className=(t==='count'?'on':''); document.getElementById('numfields').style.display=(t==='count'?'block':'none'); }
 function pickEmo(btn,e){ pickedEmoji=e; Array.prototype.forEach.call(btn.parentNode.children,function(c){c.className='emo';}); btn.className='emo on'; }
 function addHabit(){
-  var n=(document.getElementById('hname').value||"").trim(); if(!n){ return; }
-  state.habits.push({id:uid(), name:n, emoji:pickedEmoji, color:"var(--brand)", history:{}});
-  save(); closeSheet(); go('habits');
+  var n=(document.getElementById('hn').value||"").trim(); if(!n)return;
+  var h={id:uid(), name:n, emoji:pickedEmoji, type:newType, history:{}};
+  if(newType==="count"){ h.unit=(document.getElementById('hu').value||"").trim()||"count"; var t=parseInt(document.getElementById('ht').value,10); h.target=isNaN(t)?0:t; }
+  state.habits.push(h); save(); closeSheet(); go('habits');
 }
 function delHabit(id){ state.habits=state.habits.filter(function(x){return x.id!==id;}); save(); render(); }
 
-function openGoal(){
-  pickedEmoji="🎯";
-  var set=["🎯","📚","💪","💰","🏃","🎓","🧑‍💻","🎨"];
-  var emos=set.map(function(e,i){ return '<button class="emo'+(i===0?' on':'')+'" onclick="pickEmo(this,\''+e+'\')">'+e+'</button>'; }).join('');
-  openSheet('<h3>New goal</h3>'
-    +'<div class="fld"><label>Goal</label><input id="gtitle" placeholder="e.g. Read 12 books" autocomplete="off"></div>'
-    +'<div class="fld"><label>Target (number)</label><input id="gtarget" type="number" inputmode="numeric" placeholder="12" value="10"></div>'
+function openCounter(){
+  pickedEmoji="🔥";
+  var set=["🔥","🚭","🍔","📵","🍺","🎯","💧","🧠","💪","❤️"];
+  var emos=set.map(function(e,i){return '<button class="emo'+(i===0?' on':'')+'" onclick="pickEmo(this,\''+e+'\')">'+e+'</button>';}).join('');
+  openSheet('<h3>New counter</h3>'
+    +'<div class="fld"><label>Naam (e.g. "No junk", "Tudum")</label><input id="cnm" placeholder="e.g. No sugar" autocomplete="off"></div>'
     +'<div class="fld"><label>Icon</label><div class="emojis">'+emos+'</div></div>'
-    +'<div class="row"><button class="btn btn-soft" onclick="closeSheet()">Cancel</button><button class="btn btn-brand" onclick="addGoal()">Add goal</button></div>');
+    +'<div class="row"><button class="btn btn-soft" onclick="closeSheet()">Cancel</button><button class="btn btn-brand" onclick="addCounter()">Start counting</button></div>');
 }
-function addGoal(){
-  var t=(document.getElementById('gtitle').value||"").trim(); if(!t) return;
-  var tg=parseInt(document.getElementById('gtarget').value,10); if(!tg||tg<1) tg=10;
-  state.goals.push({id:uid(), title:t, emoji:pickedEmoji, target:tg, current:0});
-  save(); closeSheet(); go('today');
+function addCounter(){ var n=(document.getElementById('cnm').value||"").trim(); if(!n)return; state.counters.push({id:uid(),name:n,emoji:pickedEmoji,start:dayKey(0)}); save(); closeSheet(); go('counters'); }
+
+function openSteps(){
+  var st=(state.steps[dayKey(0)])||0;
+  openSheet('<h3>Today\'s steps</h3>'
+    +'<div class="fld"><label>Steps</label><input id="sv" type="number" inputmode="numeric" value="'+(st||'')+'" placeholder="6500"></div>'
+    +'<div class="fld"><label>Daily goal</label><input id="sg" type="number" inputmode="numeric" value="'+(state.stepGoal||10000)+'"></div>'
+    +'<div class="row"><button class="btn btn-soft" onclick="closeSheet()">Cancel</button><button class="btn btn-brand" onclick="saveSteps()">Save</button></div>');
+}
+function saveSteps(){ var v=parseInt(document.getElementById('sv').value,10); if(isNaN(v)||v<0)v=0; var g=parseInt(document.getElementById('sg').value,10); if(isNaN(g)||g<1)g=10000;
+  state.steps[dayKey(0)]=v; state.stepGoal=g; save(); closeSheet(); render(); }
+window.setSteps=function(n){ try{ var v=parseInt(n,10); if(isNaN(v)||v<0)return; state.steps[dayKey(0)]=v; save(); if(current==='today')render(); }catch(e){} };
+
+/* food sheet (search -> qty) */
+function openFood(){ renderFoodSearch(""); document.getElementById('overlay').classList.add('show'); setTimeout(function(){var el=document.getElementById('fq'); if(el)el.focus();},50); }
+function renderFoodSearch(q){
+  var ql=(q||"").toLowerCase();
+  var matches=FOODS.map(function(f,i){return {f:f,i:i};}).filter(function(o){return o.f.n.toLowerCase().indexOf(ql)>=0;}).slice(0,14);
+  var list=matches.map(function(o){ var f=o.f; return '<div class="fres" onclick="pickFood('+o.i+')"><div class="fn"><b>'+esc(f.n)+'</b><small>'+esc(f.u)+' · '+kcalOf(f.p,f.c,f.f)+' kcal · P'+f.p+' C'+f.c+' F'+f.f+'</small></div><span class="link">Add</span></div>'; }).join('');
+  if(!matches.length) list='<div class="empty">Nahi mila. Niche "Custom food" se khud daalo.</div>';
+  document.getElementById('sheet').innerHTML='<h3>Add food</h3>'
+    +'<div class="fld"><input id="fq" placeholder="Search… (e.g. roti, egg, milk)" autocomplete="off" oninput="renderFoodSearch(this.value)" value="'+esc(q||'')+'"></div>'
+    +'<div style="max-height:46dvh;overflow-y:auto">'+list+'</div>'
+    +'<button class="btn btn-soft" style="width:100%;margin-top:10px" onclick="openCustomFood()">Custom food (khud macros daalo)</button>';
+  var el=document.getElementById('fq'); if(el){ el.focus(); el.setSelectionRange(el.value.length,el.value.length); }
+}
+function pickFood(i){
+  var f=FOODS[i];
+  document.getElementById('sheet').innerHTML='<h3>'+esc(f.n)+'</h3>'
+    +'<p class="sub" style="margin:0 0 12px">Per '+esc(f.u)+': '+kcalOf(f.p,f.c,f.f)+' kcal · P'+f.p+' C'+f.c+' F'+f.f+'</p>'
+    +'<div class="fld"><label>Kitni quantity? (× '+esc(f.u)+')</label><input id="fqty" type="number" inputmode="decimal" value="1" step="0.5"></div>'
+    +'<div class="row"><button class="btn btn-soft" onclick="openFood()">Back</button><button class="btn btn-brand" onclick="addFoodItem('+i+')">Add</button></div>';
+  setTimeout(function(){var el=document.getElementById('fqty'); if(el){el.focus();el.select();}},50);
+}
+function addFoodItem(i){
+  var f=FOODS[i]; var q=parseFloat(document.getElementById('fqty').value); if(isNaN(q)||q<=0)q=1;
+  var e={id:uid(), name:f.n, unit:f.u, qty:q, p:f.p*q, c:f.c*q, f:f.f*q, kcal:kcalOf(f.p,f.c,f.f)*q};
+  var k=dayKey(0); if(!state.food[k]) state.food[k]=[]; state.food[k].push(e); save(); closeSheet(); render();
+}
+function openCustomFood(){
+  document.getElementById('sheet').innerHTML='<h3>Custom food</h3>'
+    +'<div class="fld"><label>Naam</label><input id="cfn" placeholder="e.g. Ghar ka special" autocomplete="off"></div>'
+    +'<div class="row" style="margin-top:0"><div class="fld" style="flex:1"><label>Protein (g)</label><input id="cfp" type="number" inputmode="decimal" value="0"></div>'
+    +'<div class="fld" style="flex:1"><label>Carbs (g)</label><input id="cfc" type="number" inputmode="decimal" value="0"></div>'
+    +'<div class="fld" style="flex:1"><label>Fat (g)</label><input id="cff" type="number" inputmode="decimal" value="0"></div></div>'
+    +'<div class="row"><button class="btn btn-soft" onclick="openFood()">Back</button><button class="btn btn-brand" onclick="addCustomFood()">Add</button></div>';
+  setTimeout(function(){var el=document.getElementById('cfn'); if(el)el.focus();},50);
+}
+function addCustomFood(){
+  var n=(document.getElementById('cfn').value||"").trim(); if(!n)return;
+  var p=parseFloat(document.getElementById('cfp').value)||0, c=parseFloat(document.getElementById('cfc').value)||0, f=parseFloat(document.getElementById('cff').value)||0;
+  var e={id:uid(), name:n, unit:"serving", qty:1, p:p, c:c, f:f, kcal:kcalOf(p,c,f)};
+  var k=dayKey(0); if(!state.food[k]) state.food[k]=[]; state.food[k].push(e); save(); closeSheet(); render();
 }
 
 function openName(){
-  openSheet('<h3>Your name</h3>'
-    +'<div class="fld"><label>Naam (greeting ke liye)</label><input id="uname" placeholder="e.g. Lalit" value="'+esc(state.name)+'" autocomplete="off"></div>'
+  openSheet('<h3>Your name</h3><div class="fld"><label>Naam (greeting ke liye)</label><input id="un" value="'+esc(state.name)+'" placeholder="e.g. Lalit" autocomplete="off"></div>'
     +'<div class="row"><button class="btn btn-soft" onclick="closeSheet()">Cancel</button><button class="btn btn-brand" onclick="saveName()">Save</button></div>');
-  setTimeout(function(){ var el=document.getElementById('uname'); if(el) el.focus(); },50);
+  setTimeout(function(){var el=document.getElementById('un'); if(el)el.focus();},50);
 }
-function saveName(){ state.name=(document.getElementById('uname').value||"").trim(); save(); closeSheet(); render(); }
+function saveName(){ state.name=(document.getElementById('un').value||"").trim(); save(); closeSheet(); render(); }
 
-/* ---------------- boot ---------------- */
 render();
-initCloud();
 </script>
